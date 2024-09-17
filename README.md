@@ -1,5 +1,3 @@
-Client Websites Repository
-
 Welcome to the Client Websites repository! This repository houses websites for various clients, each organized into their respective branches. You can navigate to the different branches to view and manage specific client projects.
 
 How to Find Client Websites
