@@ -107,22 +107,6 @@ const StyledLink = styled(Link)`
   }
 `;
 
-// Style the close button for mobile menu
-const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 1001;
-
-  @media (min-width: 768px) {
-    display: none; // Hide on desktop
-  }
-`;
 
 // Header component function
 function Header() {
@@ -147,10 +131,6 @@ function Header() {
     };
   }, [menuRef]);
   
-// Function to toggle the menu
-const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
-};
 
 // Function to close the menu
 const closeMenu = () => {
