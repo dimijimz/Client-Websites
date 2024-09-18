@@ -40,7 +40,7 @@ const SectionHeading = styled.h2`
 `;
 
 const ServiceItem = styled.div`
-  width: 200px;
+  width: 100%;
   margin: 1rem;
   padding: 1rem;
   border: 1px solid #333;
@@ -53,8 +53,8 @@ const ServiceItem = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 100%;
-    max-width: 300px;
+    width: calc(50% - 2rem);
+    max-width: 700px;
   }
 `;
 

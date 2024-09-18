@@ -1,37 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// Import necessary dependencies from React and other libraries
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
+// Style the main header container
 const HeaderContainer = styled.header`
-  padding: 1rem 0;
+  padding: 1rem;
+  position: relative;
   border-bottom: 1px solid #333;
+  z-index: 1000; // Ensure header stays on top of other elements
 `;
 
+// Style the navigation container
 const Nav = styled.nav`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
 
+  // On mobile, align logo and menu icon horizontally
+  flex-direction: row;
   @media (min-width: 768px) {
+    // On desktop, keep the horizontal alignment
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 
+// Style the logo
 const Logo = styled(Link)`
   text-decoration: none;
   color: white;
   font-family: 'Copperplate Gothic', sans-serif;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 
   @media (min-width: 768px) {
-    font-size: 3.5rem;
-    margin-bottom: 0;
+    font-size: 3rem;
   }
 
   &:hover {
@@ -40,26 +46,49 @@ const Logo = styled(Link)`
   }
 `;
 
+// Style the menu icon (hamburger menu for mobile)
+const MenuIcon = styled.div`
+  display: block;
+  cursor: pointer;
+  font-size: 1.5rem;
+  
+  @media (min-width: 768px) {
+    display: none; // Hide on desktop
+  }
+`;
+
+// Style the navigation links container
 const NavLinks = styled.ul`
-  list-style-type: none;
-  display: flex;
+  display: ${props => props.isOpen ? 'flex' : 'none'}; // Show/hide based on menu state
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  background-color: #1E1E1E;
+  padding: 1rem;
+  z-index: 1000;
 
   @media (min-width: 768px) {
+    display: flex;
     flex-direction: row;
+    position: static; // Reset position for desktop
+    background-color: transparent;
+    padding: 0;
   }
 `;
 
+// Style individual navigation items
 const NavItem = styled.li`
+  list-style-type: none;  
   margin: 0.5rem 0;
-
+  
   @media (min-width: 768px) {
-    margin: 0 0 0 1rem;
+    margin: 0 0 0 1rem; // Add left margin on desktop
   }
 `;
 
+// Style the navigation links
 const StyledLink = styled(Link)`
   color: white;
   padding: 10px;
@@ -78,19 +107,80 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Header = () => {
-  return (
-    <HeaderContainer>
-      <Nav>
-        <Logo to="/">Paramount Auto Styling</Logo>
-        <NavLinks>
-          <NavItem><StyledLink to="/services">Services</StyledLink></NavItem>
-          <NavItem><StyledLink to="/gallery">Gallery</StyledLink></NavItem>
-          <NavItem><StyledLink to="/contact">Contact</StyledLink></NavItem>
-        </NavLinks>
-      </Nav>
-    </HeaderContainer>
-  );
+// Style the close button for mobile menu
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+
+  @media (min-width: 768px) {
+    display: none; // Hide on desktop
+  }
+`;
+
+// Header component function
+function Header() {
+  // State to manage menu open/close
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Ref for the menu to detect outside clicks
+  const menuRef = useRef(null);
+   
+  // Effect to handle clicking outside the menu to close it
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    // Add event listener when component mounts
+    document.addEventListener("mousedown", handleClickOutside);
+    // Remove event listener when component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+  
+// Function to toggle the menu
+const toggleMenu = () => {
+  setIsMenuOpen(!isMenuOpen);
 };
+
+// Function to close the menu
+const closeMenu = () => {
+  setIsMenuOpen(false);
+};
+
+return (
+  <HeaderContainer>
+    <Nav>
+      <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
+      <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        {isMenuOpen ? (
+          <CloseIcon onClick={closeMenu}>×</CloseIcon>
+        ) : (
+          '☰'
+        )}
+      </MenuIcon>
+      <NavLinks isOpen={isMenuOpen} ref={menuRef}>
+        <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
+        <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
+        <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
+      </NavLinks>
+    </Nav>
+  </HeaderContainer>
+);
+}
+
+// Style the close icon
+const CloseIcon = styled.span`
+cursor: pointer;
+`;
 
 export default Header;
