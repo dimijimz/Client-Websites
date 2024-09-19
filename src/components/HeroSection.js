@@ -240,8 +240,8 @@ function HeroSection() {
             <AnimatedTitle>Perfection is Standard at Paramount Auto Styling</AnimatedTitle>
             <AnimatedSubtitle>Unleash Your Car's Potential: Tints, Wraps, PPF & Detailing</AnimatedSubtitle>
             <AnimatedButtonContainer>
-              <PrimaryButton href="Contact">Book Now</PrimaryButton>
-              <SecondaryButton href="Gallery">See Our Work</SecondaryButton>
+              <PrimaryButton href="contact">Book Now</PrimaryButton>
+              <SecondaryButton href="gallery">See Our Work</SecondaryButton>
             </AnimatedButtonContainer>
           </AnimatedContent>
         )}
