@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // Import the images for the slideshow
 import image1 from '../images/breakpoint-desktop.png';
@@ -240,8 +241,8 @@ function HeroSection() {
             <AnimatedTitle>Perfection is Standard at Paramount Auto Styling</AnimatedTitle>
             <AnimatedSubtitle>Unleash Your Car's Potential: Tints, Wraps, PPF & Detailing</AnimatedSubtitle>
             <AnimatedButtonContainer>
-              <PrimaryButton href="contact">Book Now</PrimaryButton>
-              <SecondaryButton href="gallery">See Our Work</SecondaryButton>
+              <PrimaryButton as={Link} to="/contact">Book Now</PrimaryButton>
+              <SecondaryButton as={Link} to="/gallery">See Our Work</SecondaryButton>
             </AnimatedButtonContainer>
           </AnimatedContent>
         )}
