@@ -8,6 +8,8 @@ import image2 from '../images/slide2.jpg';
 import image3 from '../images/slide3.jpg';
 
 // Main container for the hero section
+// Uses 100vw width and negative margins to create a full-width container
+// Adjusts aspect ratio for mobile and desktop views
 const HeroContainer = styled.div`
   position: relative;
   width: 100vw;
@@ -23,6 +25,8 @@ const HeroContainer = styled.div`
 `;
 
 // Styled component for each slide image
+// Uses absolute positioning to stack slides
+// Controls opacity for slide transitions
 const SlideImage = styled.div`
   position: absolute;
   top: 0;
@@ -48,6 +52,8 @@ const Overlay = styled.div`
 `;
 
 // Wrapper for the content (title, subtitle, buttons)
+// Uses flexbox for centering content
+// Adjusts alignment for desktop view
 const ContentWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -63,12 +69,13 @@ const ContentWrapper = styled.div`
 
   @media (min-width: 768px) {
     justify-content: flex-start;
-    padding: 0 32px;
+    padding: 0 32px 0 64px;
     text-align: left;
   }
 `;
 
 // Styles for the content area
+// Adjusts width for mobile and desktop views
 const Content = styled.div`
   max-width: 100%;
   width: 100%;
@@ -80,6 +87,7 @@ const Content = styled.div`
 `;
 
 // Styles for the main title
+// Adjusts font size and margins for mobile and desktop views
 const HeroTitle = styled.h1`
   color: white;
   font-size: 1.8rem;
@@ -94,6 +102,7 @@ const HeroTitle = styled.h1`
 `;
 
 // Styles for the subtitle
+// Adjusts font size and margins for mobile and desktop views
 const HeroSubtitle = styled.p`
   color: white;
   font-size: 1rem;
@@ -107,6 +116,8 @@ const HeroSubtitle = styled.p`
 `;
 
 // Container for the buttons
+// Uses flexbox for layout
+// Adjusts direction and width for mobile and desktop views
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -121,6 +132,7 @@ const ButtonContainer = styled.div`
 `;
 
 // Base styles for buttons
+// Adjusts size and layout for mobile and desktop views
 const Button = styled.a`
   padding: 10px 20px;
   border-radius: 4px;
@@ -143,6 +155,7 @@ const Button = styled.a`
 `;
 
 // Styles for the primary button
+// Includes hover effect
 const PrimaryButton = styled(Button)`
   background-color: black;
   color: white;

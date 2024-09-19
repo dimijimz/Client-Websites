@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // Style the main header container
+// Sets padding, position, bottom border, and z-index to ensure it stays on top
 const HeaderContainer = styled.header`
   padding: 1rem;
   position: relative;
@@ -12,6 +13,7 @@ const HeaderContainer = styled.header`
 `;
 
 // Style the navigation container
+// Uses flexbox for layout, sets max width and centers content
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -29,6 +31,8 @@ const Nav = styled.nav`
 `;
 
 // Style the logo
+// Uses React Router's Link component for navigation
+// Sets font, size, and hover effect
 const Logo = styled(Link)`
   text-decoration: none;
   color: white;
@@ -47,6 +51,7 @@ const Logo = styled(Link)`
 `;
 
 // Style the menu icon (hamburger menu for mobile)
+// Hides on desktop
 const MenuIcon = styled.div`
   display: block;
   cursor: pointer;
@@ -58,6 +63,8 @@ const MenuIcon = styled.div`
 `;
 
 // Style the navigation links container
+// Shows/hides based on menu state
+// Changes layout for desktop view
 const NavLinks = styled.ul`
   display: ${props => props.isOpen ? 'flex' : 'none'}; // Show/hide based on menu state
   flex-direction: column;
@@ -89,6 +96,8 @@ const NavItem = styled.li`
 `;
 
 // Style the navigation links
+// Uses React Router's Link component
+// Sets font, size, and hover effect
 const StyledLink = styled(Link)`
   color: white;
   padding: 10px;
@@ -106,7 +115,6 @@ const StyledLink = styled(Link)`
     text-decoration: none;
   }
 `;
-
 
 // Header component function
 function Header() {
@@ -131,36 +139,35 @@ function Header() {
     };
   }, [menuRef]);
   
+  // Function to close the menu
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
-// Function to close the menu
-const closeMenu = () => {
-  setIsMenuOpen(false);
-};
-
-return (
-  <HeaderContainer>
-    <Nav>
-      <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
-      <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? (
-          <CloseIcon onClick={closeMenu}>×</CloseIcon>
-        ) : (
-          '☰'
-        )}
-      </MenuIcon>
-      <NavLinks isOpen={isMenuOpen} ref={menuRef}>
-        <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
-        <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
-        <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
-      </NavLinks>
-    </Nav>
-  </HeaderContainer>
-);
+  return (
+    <HeaderContainer>
+      <Nav>
+        <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
+        <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? (
+            <CloseIcon onClick={closeMenu}>×</CloseIcon>
+          ) : (
+            '☰'
+          )}
+        </MenuIcon>
+        <NavLinks isOpen={isMenuOpen} ref={menuRef}>
+          <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
+          <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
+          <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
+        </NavLinks>
+      </Nav>
+    </HeaderContainer>
+  );
 }
 
 // Style the close icon
 const CloseIcon = styled.span`
-cursor: pointer;
+  cursor: pointer;
 `;
 
 export default Header;

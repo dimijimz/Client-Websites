@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Main container for the contact page
+// Centers content and sets maximum width
 const ContactContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem 0;
-  h1 { font-family: 'Copperplate Gothic', sans-serif;
+  h1 { 
+    font-family: 'Copperplate Gothic', sans-serif;
     font-size: 3.5rem;
     font-weight: bold;
     color: white;
@@ -15,17 +18,21 @@ const ContactContainer = styled.div`
   }
 `;
 
+// Styled form component
+// Uses flexbox for vertical layout
 const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
 
+// Styled input component for text and email fields
 const Input = styled.input`
   margin-bottom: 1rem;
   padding: 0.5rem;
   font-size: 1rem;
 `;
 
+// Styled textarea component for message field
 const TextArea = styled.textarea`
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -33,6 +40,8 @@ const TextArea = styled.textarea`
   height: 150px;
 `;
 
+// Styled button component for form submission
+// Includes hover effect
 const Button = styled.button`
   background-color: #007bff;
   color: white;
@@ -47,12 +56,15 @@ const Button = styled.button`
 `;
 
 function Contact() {
+  // State to manage form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
+  // Handler for input changes
+  // Updates formData state when user types in inputs
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -60,6 +72,7 @@ function Contact() {
     });
   };
 
+  // Handler for form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would typically send the form data to a server

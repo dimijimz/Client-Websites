@@ -3,16 +3,20 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 
+// Main container for the home page
 const HomeContainer = styled.div`
   text-align: center;
 `;
 
-// Define the fadeIn animation (same as HeroSection.js)
+// Define the fadeIn animation
+// This is used to animate elements into view
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
+// Styled component for the services section
+// Uses flexbox for layout and includes responsive design
 const ServicesSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -31,6 +35,7 @@ const ServicesSection = styled.section`
   }
 `;
 
+// Styled component for the section heading
 const SectionHeading = styled.h2`
   font-size: 2.5rem;
   font-family: Copperplate Gothic, sans-serif;
@@ -39,6 +44,8 @@ const SectionHeading = styled.h2`
   width: 100%; // Ensures the heading takes up full width
 `;
 
+// Styled component for individual service items
+// Includes hover effects and responsive design
 const ServiceItem = styled.div`
   width: 100%;
   margin: 1rem;
@@ -58,6 +65,8 @@ const ServiceItem = styled.div`
   }
 `;
 
+// Styled component for Call-to-Action buttons
+// Uses React Router's Link component for navigation
 const CTAButton = styled(Link)`
   display: inline-block;
   background-color: white;
@@ -75,34 +84,45 @@ const CTAButton = styled(Link)`
 `;
 
 function Home() {
+  // State to control visibility of services section
   const [isVisible, setIsVisible] = useState(false);
 
+  // Effect to trigger fade-in animation when component mounts
   useEffect(() => {
-    // Trigger fade-in when the component mounts
     setIsVisible(true);
   }, []);
 
   return (
     <HomeContainer>
+      {/* Hero section component */}
       <HeroSection />
-      {/* Pass isVisible as a prop to conditionally apply the animation */}
+      
+      {/* Services section with conditional opacity based on isVisible state */}
       <ServicesSection style={{ opacity: isVisible ? 1 : 0 }}>
         <SectionHeading>Our Services</SectionHeading>
+        
+        {/* Window Tinting service item */}
         <ServiceItem>
           <h3>Window Tinting</h3>
           <p>Enhance privacy and reduce heat</p>
           <CTAButton to="/services#tinting">Learn More</CTAButton>
         </ServiceItem>
+        
+        {/* Vehicle Wraps service item */}
         <ServiceItem>
           <h3>Vehicle Wraps</h3>
           <p>Transform your car's appearance</p>
           <CTAButton to="/services#wraps">Learn More</CTAButton>
         </ServiceItem>
+        
+        {/* PPF Wraps service item */}
         <ServiceItem>
           <h3>PPF Wraps</h3>
           <p>Protect your car's finish</p>
           <CTAButton to="/services#ppf">Learn More</CTAButton>
         </ServiceItem>
+        
+        {/* Detailing service item */}
         <ServiceItem>
           <h3>Detailing</h3>
           <p>Keep your car looking its best</p>
