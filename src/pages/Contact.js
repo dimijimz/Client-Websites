@@ -43,7 +43,7 @@ const TextArea = styled.textarea`
 // Styled button component for form submission
 // Includes hover effect
 const Button = styled.button`
-  background-color: #007bff;
+  background-color: black;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -51,7 +51,7 @@ const Button = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: #0056b3;
+    background-color: lightgray;
   }
 `;
 
