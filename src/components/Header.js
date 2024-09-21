@@ -17,7 +17,11 @@ const HeaderContainer = styled.header`
 `;
 
 const MainContentPadding = styled.div`
-  padding-top: 105px;
+  padding-top: 68px; // Default padding for mobile
+
+  @media (min-width: 768px) {
+    padding-top: 105px; // Padding for desktop
+  }
 `;
 
 // Style the navigation container
