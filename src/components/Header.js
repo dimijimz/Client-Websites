@@ -16,6 +16,7 @@ const HeaderContainer = styled.header`
   z-index: 1000;
 `;
 
+// Padding component to push content below fixed header
 const MainContentPadding = styled.div`
   padding-top: 68px; // Default padding for mobile
 
@@ -128,6 +129,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
+// Style the close icon
+const CloseIcon = styled.span`
+  cursor: pointer;
+`;
+
 // Header component function
 function Header() {
   // State to manage menu open/close
@@ -169,6 +175,7 @@ function Header() {
             )}
           </MenuIcon>
           <NavLinks isOpen={isMenuOpen} ref={menuRef}>
+            <NavItem><StyledLink to="/" onClick={closeMenu}>Home</StyledLink></NavItem>
             <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
             <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
             <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
@@ -179,9 +186,5 @@ function Header() {
     </>
   );
 }
-// Style the close icon
-const CloseIcon = styled.span`
-  cursor: pointer;
-`;
 
 export default Header;
