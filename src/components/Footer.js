@@ -111,7 +111,7 @@ function Footer() {
       
       {/* Copyright notice */}
       <Copyright>
-        © {new Date().getFullYear()} Paramount Auto Styling. All rights reserved.
+        © {new Date().getFullYear()} DimiJimz Web Development. All rights reserved.
       </Copyright>
     </FooterContainer>
   );

@@ -10,6 +10,9 @@ import styled from 'styled-components';
 // Import global styles
 import GlobalStyles from './GlobalStyles';
 
+// Import ScrollToTop component
+import ScrollToTop from './components/ScrollToTop';
+
 // Import components and pages
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -34,6 +37,8 @@ function App() {
   return (
     // Set up the Router component to enable routing in the app
     <Router>
+      {/* Apply ScrollToTop component to the entire app */}
+      <ScrollToTop />
       {/* Apply global styles to the entire app */}
       <GlobalStyles />
 

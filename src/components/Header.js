@@ -7,9 +7,17 @@ import { Link } from 'react-router-dom';
 // Sets padding, position, bottom border, and z-index to ensure it stays on top
 const HeaderContainer = styled.header`
   padding: 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #1E1E1E;
   border-bottom: 1px solid #333;
-  z-index: 1000; // Ensure header stays on top of other elements
+  z-index: 1000;
+`;
+
+const MainContentPadding = styled.div`
+  padding-top: 105px;
 `;
 
 // Style the navigation container
@@ -145,26 +153,28 @@ function Header() {
   };
 
   return (
-    <HeaderContainer>
-      <Nav>
-        <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
-        <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? (
-            <CloseIcon onClick={closeMenu}>×</CloseIcon>
-          ) : (
-            '☰'
-          )}
-        </MenuIcon>
-        <NavLinks isOpen={isMenuOpen} ref={menuRef}>
-          <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
-          <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
-          <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
-        </NavLinks>
-      </Nav>
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <Nav>
+          <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
+          <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? (
+              <CloseIcon onClick={closeMenu}>×</CloseIcon>
+            ) : (
+              '☰'
+            )}
+          </MenuIcon>
+          <NavLinks isOpen={isMenuOpen} ref={menuRef}>
+            <NavItem><StyledLink to="/services" onClick={closeMenu}>Services</StyledLink></NavItem>
+            <NavItem><StyledLink to="/gallery" onClick={closeMenu}>Gallery</StyledLink></NavItem>
+            <NavItem><StyledLink to="/contact" onClick={closeMenu}>Contact</StyledLink></NavItem>
+          </NavLinks>
+        </Nav>
+      </HeaderContainer>
+      <MainContentPadding />
+    </>
   );
 }
-
 // Style the close icon
 const CloseIcon = styled.span`
   cursor: pointer;
