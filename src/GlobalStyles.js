@@ -26,8 +26,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-size: 16px;
     line-height: 1.5;
-    padding-top: env(safe-area-inset-top); // Ensures padding for the notch
-    padding-bottom: env(safe-area-inset-bottom); // Ensures padding for the bottom safe area
   }
 
   // Ensure the root element takes up full viewport height
@@ -72,6 +70,8 @@ const GlobalStyles = createGlobalStyle`
   @media (max-width: 768px) {
     body {
       font-size: 14px;
+      padding-top: env(safe-area-inset-top); // Safe area padding only for mobile
+      padding-bottom: env(safe-area-inset-bottom);
     }
 
     h1 {
@@ -89,13 +89,11 @@ const GlobalStyles = createGlobalStyle`
     p {
       font-size: 14px;
     }
-  }
 
-  // Ensure the header background covers the notch area
-  header {
-    background-color: #1E1E1E;
-    padding-top: env(safe-area-inset-top); // Padding inside header to avoid notch overlay
-    height: 60px; // Adjust height as needed
+    header {
+      background-color: #1E1E1E;
+      padding-top: env(safe-area-inset-top); // Ensure the header respects the notch
+    }
   }
 `;
 
