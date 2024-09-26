@@ -1,13 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 // Import custom font file
 import CopperplateGothicFont from './fonts/Copperplate-Gothic-Std-30-BC.ttf';
+import AntiqueWondersFont from './fonts/AntiqueWondersFree.woff';
 
 // Create global styles using styled-components
 const GlobalStyles = createGlobalStyle`
-  // Define custom font face
+  // Define custom font face for Copperplate Gothic
   @font-face {
     font-family: 'Copperplate Gothic';
     src: url(${CopperplateGothicFont}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  // Define custom font face for AntiqueWonders
+  @font-face {
+    font-family: 'AntiqueWonders';
+    src: url(${AntiqueWondersFont}) format('woff');
     font-weight: normal;
     font-style: normal;
   }

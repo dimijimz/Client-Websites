@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
+
+
 // Style the main header container
 // Sets padding, position, bottom border, and z-index to ensure it stays on top
 const HeaderContainer = styled.header`
@@ -49,9 +52,9 @@ const Nav = styled.nav`
 const Logo = styled(Link)`
   text-decoration: none;
   color: white;
-  font-family: 'Copperplate Gothic', sans-serif;
+  font-family: 'AntiqueWonders' , sans-serif;
+  font-weight: normal;
   font-size: 1.5rem;
-  font-weight: bold;
 
   @media (min-width: 768px) {
     font-size: 3rem;
@@ -114,7 +117,8 @@ const NavItem = styled.li`
 const StyledLink = styled(Link)`
   color: white;
   padding: 10px;
-  font-family: 'Copperplate Gothic', sans-serif;
+  font-family: 'AntiqueWonders' , sans-serif;
+  font-weight: normal;
   font-size: 1.2rem;
   text-decoration: none;
 
