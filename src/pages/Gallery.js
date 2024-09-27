@@ -8,11 +8,10 @@ const GalleryContainer = styled.div`
   margin: 0 auto;
   padding: 2rem 0;
   h1 { 
-    font-family: 'Copperplate Gothic', sans-serif;
+    font-family: 'AntiqueWonders', sans-serif;
     font-size: 3.5rem;
-    font-weight: bold;
+    font-weight: normal;
     color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     text-decoration: none;
     text-align: center;
   }

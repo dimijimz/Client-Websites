@@ -13,7 +13,7 @@ const FooterContainer = styled.footer`
 // Wrapper for the footer content, uses flexbox for layout
 const FooterContent = styled.div`
   display: flex;
-  justify-content: space-between; // Pushes content to the edges
+  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -75,8 +75,11 @@ const Copyright = styled.div`
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid #444;
-`;
 
+  .number { 
+    font-family: 'Open Sans', sans-serif;
+  }
+`;
 function Footer() {
   return (
     <FooterContainer>
@@ -99,11 +102,11 @@ function Footer() {
         <ContactSection>
           <FooterTitle>Contact Us</FooterTitle>
           <ContactItem>
-            25 Miller Rd, Mahopac, NY 10541
+            <span className="number">25</span>&nbsp;Miller Rd, Mahopac, NY&nbsp;<span className="number">10541</span>
             <FaMapMarkerAlt />
           </ContactItem>
           <ContactItem>
-            845-674-9777
+            <span className="number">845-674-9777</span>&nbsp;
             <FaPhone />
           </ContactItem>
         </ContactSection>
@@ -111,7 +114,7 @@ function Footer() {
       
       {/* Copyright notice */}
       <Copyright>
-        © {new Date().getFullYear()} DimiJimz Web Development. All rights reserved.
+        © <span className="number">{new Date().getFullYear()}</span> DimiJimz Web Development. All rights reserved.
       </Copyright>
     </FooterContainer>
   );

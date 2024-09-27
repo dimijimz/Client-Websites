@@ -35,7 +35,7 @@ const ServicesSection = styled.section`
 // Styled component for the section heading
 const SectionHeading = styled.h2`
   font-size: 2.5rem;
-  font-family: Copperplate Gothic, sans-serif;
+  font-family: 'Soliden', sans-serif;
   color: white;
   margin-bottom: 2rem;
   width: 100%;

@@ -92,7 +92,7 @@ const HeroTitle = styled.h1`
   color: white;
   font-size: 1.8rem;
   font-weight: 700;
-  font-family: open-sans, sans-serif;
+  font-family: 'Soliden', sans-serif;
   margin-bottom: 0.5rem;
 
   @media (min-width: 768px) {
@@ -106,7 +106,7 @@ const HeroTitle = styled.h1`
 const HeroSubtitle = styled.p`
   color: white;
   font-size: 1rem;
-  font-family: open-sans, sans-serif;
+  font-family: 'Soliden', sans-serif;
   margin-bottom: 1rem;
 
   @media (min-width: 768px) {

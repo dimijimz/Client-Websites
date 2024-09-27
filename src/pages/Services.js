@@ -17,7 +17,8 @@ const ServicesContainer = styled.div`
 
 // Styled component for the main "Our Services" heading
 const ServicesTitle = styled.h1`
-  font-family: 'Copperplate Gothic', sans-serif;
+  font-family: 'AntiqueWonders', sans-serif;
+  font-weight: normal;
   font-size: 3rem;
   color: white;
   text-align: center;

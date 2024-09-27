@@ -8,11 +8,10 @@ const ContactContainer = styled.div`
   margin: 0 auto;
   padding: 2rem 0;
   h1 { 
-    font-family: 'Copperplate Gothic', sans-serif;
+    font-family: 'AntiqueWonders', sans-serif;
     font-size: 3.5rem;
-    font-weight: bold;
+    font-weight: normal;
     color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     text-decoration: none;
     text-align: center;
   }
@@ -44,6 +43,7 @@ const TextArea = styled.textarea`
 // Includes hover effect
 const Button = styled.button`
   background-color: black;
+  font-family: 'AntiqueWonders', sans-serif;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -51,7 +51,7 @@ const Button = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: lightgray;
+    background-color: #333;
   }
 `;
 

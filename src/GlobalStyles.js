@@ -1,17 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-// Import custom font file
-import CopperplateGothicFont from './fonts/Copperplate-Gothic-Std-30-BC.ttf';
+// Import custom font files
 import AntiqueWondersFont from './fonts/AntiqueWondersFree.woff';
+import SolidenFont from './fonts/SolidenTrial-Regular.ttf';
 
 // Create global styles using styled-components
 const GlobalStyles = createGlobalStyle`
-  // Define custom font face for Copperplate Gothic
-  @font-face {
-    font-family: 'Copperplate Gothic';
-    src: url(${CopperplateGothicFont}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
 
   // Define custom font face for AntiqueWonders
   @font-face {
@@ -21,15 +14,28 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
   }
 
+    // Define custom font face for Soliden
+  @font-face {
+    font-family: 'Soliden';
+    src: url(${SolidenFont}) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+   /* Import Open Sans from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+  .number {
+  font-family: 'Open Sans', sans-serif; /* Fallback for numbers */
+}
+
   // Reset default styles and set global styles for body and html
   body, html {
     margin: 0;
     padding: 0;
     background-color: #1E1E1E; // Dark background
     color: #f0f0f0; // Light text color
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'soliden', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
