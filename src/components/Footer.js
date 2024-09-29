@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaInstagram, FaTiktok, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
-// Main container for the footer
+// Container for the whole footer section
 const FooterContainer = styled.footer`
   background-color: #333;
   color: white;
@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
   margin-top: 2rem;
 `;
 
-// Wrapper for the footer content, uses flexbox for layout
+// Main wrapper for everything in the footer, keeps things neat with flexbox
 const FooterContent = styled.div`
   display: flex;
   justify-content: space-between;
@@ -19,34 +19,34 @@ const FooterContent = styled.div`
   padding: 0 20px;
 `;
 
-// Base styles for footer sections
+// Basic setup for the sections inside the footer
 const FooterSection = styled.div`
   flex: 1;
 `;
 
-// Company section takes up more space
+// Giving the company info section more room
 const CompanySection = styled(FooterSection)`
   flex: 2;
 `;
 
-// Contact section aligned to the right
+// Right-aligning the contact section
 const ContactSection = styled(FooterSection)`
   text-align: right;
 `;
 
-// Styling for section titles
+// Style for the titles in the footer sections
 const FooterTitle = styled.h3`
   margin-bottom: 1rem;
 `;
 
-// Container for social media icons
+// Social icons area
 const SocialIcons = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
 `;
 
-// Styling for individual social icons
+// Individual styles for each social media icon
 const SocialIcon = styled.a`
   color: #ddd;
   font-size: 1.5rem;
@@ -57,7 +57,7 @@ const SocialIcon = styled.a`
   }
 `;
 
-// Styling for contact items with icons
+// Contact info with icons next to it
 const ContactItem = styled.p`
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@ const ContactItem = styled.p`
   }
 `;
 
-// Copyright section at the bottom
+// Style for the copyright notice at the bottom
 const Copyright = styled.div`
   text-align: center;
   margin-top: 2rem;
@@ -84,7 +84,7 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterContent>
-        {/* Company information and social links */}
+        {/* Section for company info and links to social media */}
         <CompanySection>
           <FooterTitle>Paramount Auto Styling</FooterTitle>
           <p>Specializing in Window Tints, Wraps, PPF & Detailing</p>
@@ -98,7 +98,7 @@ function Footer() {
           </SocialIcons>
         </CompanySection>
         
-        {/* Contact information with icons */}
+        {/* Section for contact info with icons */}
         <ContactSection>
           <FooterTitle>Contact Us</FooterTitle>
           <ContactItem>
@@ -112,7 +112,7 @@ function Footer() {
         </ContactSection>
       </FooterContent>
       
-      {/* Copyright notice */}
+      {/* Copyright notice at the bottom */}
       <Copyright>
         © <span className="number">{new Date().getFullYear()}</span> DimiJimz Web Development. All rights reserved.
       </Copyright>
