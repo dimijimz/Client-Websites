@@ -170,7 +170,7 @@ function Header() {
     <>
       <HeaderContainer>
         <Nav>
-          <Logo to="/" onClick={closeMenu}>Paramount Auto Styling</Logo>
+          <Logo to="/" onClick={closeMenu}>Route 6 Auto Repair</Logo>
           <MenuIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
               <CloseIcon onClick={closeMenu}>×</CloseIcon>
